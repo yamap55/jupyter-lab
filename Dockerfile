@@ -31,10 +31,6 @@ RUN rm -rf /var/lib/apt/lists/* \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
-# install hadolint
-RUN wget --progress=dot:giga https://github.com/hadolint/hadolint/releases/latest/download/hadolint-Linux-x86_64 -O /usr/local/bin/hadolint \
-    && chmod +x /usr/local/bin/hadolint
-
 # pyright install
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
     && apt-get install --no-install-recommends -y nodejs \
