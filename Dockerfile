@@ -32,7 +32,7 @@ RUN rm -rf /var/lib/apt/lists/* \
     && rm -rf /var/lib/apt/lists/*
 
 # pyright install
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get install --no-install-recommends -y nodejs \
     && npm install --global pyright
 
