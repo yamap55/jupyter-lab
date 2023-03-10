@@ -4,9 +4,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tokyo
 RUN echo $TZ > /etc/timezone
 
-ARG WORKDIR=/project
-WORKDIR ${WORKDIR}
-
 # Or your actual UID, GID on Linux if not the default 1000
 ARG USERNAME=jupyter
 ARG USER_UID=1000
@@ -44,6 +41,8 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
 USER $USERNAME
+WORKDIR /home/$USERNAME
+
 ENV PATH=$PATH:/home/$USERNAME/.local/bin
 
 # terminal setting
