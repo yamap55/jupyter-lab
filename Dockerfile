@@ -28,10 +28,10 @@ RUN rm -rf /var/lib/apt/lists/* \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
-# pyright install
+# pyright, tslab install
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get install --no-install-recommends -y nodejs \
-    && npm install --global pyright
+    && npm install --global pyright tslab
 
 # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
 RUN groupadd --gid $USER_GID $USERNAME \
@@ -63,5 +63,8 @@ RUN pip install --no-cache-dir -U pip
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
+# tslab setting
+RUN tslab install
+
 ENV DEBIAN_FRONTEND=
-CMD ["/bin/bash"]
+CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--NotebookApp.token=''"]
