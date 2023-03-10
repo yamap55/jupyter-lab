@@ -44,19 +44,12 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
 USER $USERNAME
-ENV PATH "/home/$USERNAME/.poetry/bin:$PATH"
-
-# poetry install
-ENV POETRY_VIRTUALENVS_IN_PROJECT=true
-RUN curl -sSL https://install.python-poetry.org | python -
-
 # terminal setting
 RUN wget --progress=dot:giga https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion.bash \
     && wget --progress=dot:giga https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh \
     && chmod a+x ~/.git-completion.bash \
     && chmod a+x ~/.git-prompt.sh \
     && echo -e "\n\
-    export VIRTUAL_ENV_DISABLE_PROMPT=1\n\
     source ~/.git-completion.bash\n\
     source ~/.git-prompt.sh\n\
     export PS1='\\[\\e[30m\\]\\\\t\\[\\e[0m\\] \\[\\e]0;\\u@\\h: \\w\\a\\]\${debian_chroot:+(\$debian_chroot)}\\[\\033[01;32m\\]\\u\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\[\\033[1;30m\\]\$(__git_ps1)\\[\\033[0m\\] \\$ '\n\
