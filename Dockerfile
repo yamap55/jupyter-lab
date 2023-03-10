@@ -59,5 +59,9 @@ RUN wget --progress=dot:giga https://raw.githubusercontent.com/git/git/master/co
 # hadolint ignore=DL3013
 RUN pip install --no-cache-dir -U pip
 
+# library install
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
 ENV DEBIAN_FRONTEND=
 CMD ["/bin/bash"]
