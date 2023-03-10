@@ -8,7 +8,7 @@ ARG WORKDIR=/project
 WORKDIR ${WORKDIR}
 
 # Or your actual UID, GID on Linux if not the default 1000
-ARG USERNAME=vscode
+ARG USERNAME=jupyter
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
