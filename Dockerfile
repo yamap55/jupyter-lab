@@ -3,6 +3,7 @@ FROM python:3.10.10
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tokyo
 RUN echo $TZ > /etc/timezone
+ARG WORK_DIR=/notebook
 
 # Or your actual UID, GID on Linux if not the default 1000
 ARG USERNAME=jupyter
@@ -64,4 +65,5 @@ RUN pip install --no-cache-dir -U pip \
     && tslab install
 
 ENV DEBIAN_FRONTEND=
+WORKDIR $WORK_DIR
 CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--NotebookApp.token=''"]
