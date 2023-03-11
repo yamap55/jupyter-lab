@@ -3,7 +3,7 @@ FROM python:3.10.10
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tokyo
 RUN echo $TZ > /etc/timezone
-ARG WORK_DIR=/notebook
+ARG WORK_DIR=/notebooks
 
 # Or your actual UID, GID on Linux if not the default 1000
 ARG USERNAME=jupyter

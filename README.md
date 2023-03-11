@@ -8,7 +8,7 @@
 
 1. 起動
   - `docker run -p 8888:8888 ghcr.io/yamap55/ts-jupyter:latest`
-  - notebookを保存しておきたい場合には `/notebook` にマウントする
-    - 例: `docker run -p 8888:8888 -v c:\work:/notebook ghcr.io/yamap55/ts-jupyter:latest`
+  - notebookを保存しておきたい場合には `/notebooks` にマウントする
+    - 例: `docker run -p 8888:8888 -v c:\work:/notebooks ghcr.io/yamap55/ts-jupyter:latest`
 1. ブラウザでアクセス
   - `http://localhost:8888`
