@@ -1,5 +1,7 @@
 # jupyter-lab
 
+[![hadolint](https://github.com/yamap55/jupyter-lab/actions/workflows/hadolint.yml/badge.svg?branch=main)](https://github.com/yamap55/jupyter-lab/actions/workflows/hadolint.yml)
+
 本リポジトリはTypeScriptの実行環境を加えたJupyter Notebookを起動するためのDockerImageを管理します。
 
 ## 使用方法
