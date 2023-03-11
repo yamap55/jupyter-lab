@@ -6,7 +6,7 @@
 
 ## 使用方法
 
-```
-docker build -t ghcr.io/yamap55/ts-jupyter:v0.0.0 .
-docker run --rm -it -p 8888:8888 ghcr.io/yamap55/ts-jupyter:v0.0.0
-```
+1. 起動
+  - `docker run -p 8888:8888 ghcr.io/yamap55/ts-jupyter:latest`
+2. ブラウザでアクセス
+  - `http://localhost:8888`
